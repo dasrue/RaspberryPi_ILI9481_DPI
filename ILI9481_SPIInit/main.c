@@ -92,6 +92,8 @@ void ILI_SendCMDByte(uint8_t cmdByte) {
 
 int main(int argc, char* argv[]) {
 	
+	if(!bcm2835_init())
+		return 1;
 	SPI_Init();
 	
 	SPI_CSAssert();
@@ -141,18 +143,18 @@ int main(int argc, char* argv[]) {
 	
 	SPI_CSAssert();
 	ILI_SendCMDByte(0xC8);	// Set gamma
-    ILI_SendDataByte(0x00);	// Values stolen from https://github.com/Bodmer/TFT_HX8357_Due/blob/master/TFT_HX8357_Due.cpp line 454
-    ILI_SendDataByte(0x32);
-    ILI_SendDataByte(0x36);
-    ILI_SendDataByte(0x45);
-    ILI_SendDataByte(0x06);
-    ILI_SendDataByte(0x16);
-    ILI_SendDataByte(0x37);
-    ILI_SendDataByte(0x75);
-    ILI_SendDataByte(0x77);
-    ILI_SendDataByte(0x54);
-    ILI_SendDataByte(0x0C);
-    ILI_SendDataByte(0x00);
+	ILI_SendDataByte(0x00);	// Values stolen from https://github.com/Bodmer/TFT_HX8357_Due/blob/master/TFT_HX8357_Due.cpp line 454
+	ILI_SendDataByte(0x32);
+	ILI_SendDataByte(0x36);
+	ILI_SendDataByte(0x45);
+	ILI_SendDataByte(0x06);
+	ILI_SendDataByte(0x16);
+	ILI_SendDataByte(0x37);
+	ILI_SendDataByte(0x75);
+	ILI_SendDataByte(0x77);
+	ILI_SendDataByte(0x54);
+	ILI_SendDataByte(0x0C);
+	ILI_SendDataByte(0x00);
 	SPI_CSDeassert();
 	
 	SPI_CSAssert();
@@ -170,5 +172,6 @@ int main(int argc, char* argv[]) {
 	SPI_CSDeassert();
 	
 	printf("Display initialised!\r\n");
+	bcm2835_close();
 	return 0;
 }
