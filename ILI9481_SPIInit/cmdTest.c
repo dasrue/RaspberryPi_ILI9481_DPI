@@ -35,6 +35,7 @@ the http://www.airspayce.com/mikem/bcm2835/ GPIO library.
 
 #include <stdio.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include "bcm2835.h"
 
 #define SPI_HOLDTIMEUS	5
@@ -102,16 +103,16 @@ int main(int argc, char* argv[]) {
 	SPI_Init();
 	
 
-	//SPI_CSAssert();
-	//ILI_SendCMDByte(strtol(argv[1], NULL, 16) & 0xFF);	
-	printf("Will send CMD 0x%02X\r\n", strtol(argv[1], NULL, 16) & 0xFF);
+	SPI_CSAssert();
+	ILI_SendCMDByte(strtol(argv[1], NULL, 16) & 0xFF);	
+	printf("Sent CMD  0x%02X\r\n", strtol(argv[1], NULL, 16) & 0xFF);
 	if(argc > 2) {
 		for(uint32_t i = 0; i < argc - 2; i++) {
-			//ILI_SendDataByte(strtol(argv[i + 2], NULL, 16) & 0xFF);	
-			printf("Will send DATA 0x%02X\r\n", strtol(argv[i + 2], NULL, 16) & 0xFF);
+			ILI_SendDataByte(strtol(argv[i + 2], NULL, 16) & 0xFF);	
+			printf("Sent DATA 0x%02X\r\n", strtol(argv[i + 2], NULL, 16) & 0xFF);
 		}
 	}
-	//SPI_CSDeassert();
+	SPI_CSDeassert();
 
 	bcm2835_close();
 	return 0;
