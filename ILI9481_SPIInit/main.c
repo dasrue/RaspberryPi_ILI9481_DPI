@@ -68,7 +68,7 @@ void SPI_Send(uint8_t bitLen, uint32_t value) {
 	if(bitLen > 32)
 		bitLen = 32;	// Chop bitLen to 32
 	
-	for(int8_t i = bitLen; i >= 0; i--) {
+	for(int8_t i = bitLen - 1; i >= 0; i--) {
 		bcm2835_delayMicroseconds(SPI_HOLDTIMEUS);
 		bcm2835_gpio_clr(gpio_pin_clk);		// Pull the clock low.
 		bcm2835_gpio_write(gpio_pin_mosi, (value >> i) & 1);	// Setup the data line
