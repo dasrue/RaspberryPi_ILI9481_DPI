@@ -1,0 +1,377 @@
+C51 COMPILER V9.01   C51SOURCE                                                             06/28/2014 15:33:04 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE C51SOURCE
+OBJECT MODULE PLACED IN c51source.OBJ
+COMPILER INVOKED BY: D:\keil4\C51\BIN\C51.EXE c51source.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          
+   2          #include <intrins.h>
+   3          #include <reg51.h>
+   4          #include <absacc.h>
+   5          
+   6          sbit    CSB     =       P3^3;
+   7          sbit    RESETB  =       P3^4;
+   8          sbit    SDA     =       P3^5;
+   9          sbit    SCL     =       P3^6;
+  10          
+  11          
+  12          sbit    KEY =   P3^2;
+  13          
+  14          
+  15          void LCD_INIT_ILI9481(void);
+  16          void LCD_WRITE_DATA_dis(char colorH,char colorL);
+  17          void LCD_TEST_SingleColor_16BPP(char colorH,char colorL);
+  18          void LCD_TEST_SingleColor(char colorH,char colorz,char colorL);
+  19          void LCD_WRITE_CMD(char cmd1);
+  20          void LCD_WRITE_DATA(char dataa);
+  21          void LCD_TEST_barColor();
+  22          void HD_reset(void);
+  23          void Keypress(void);
+  24          
+  25          void delayms(int value);
+  26          void delayus(int value1);
+  27          unsigned char code barcolor[];
+  28          
+  29          
+  30          unsigned char code barcolor[]={
+  31          0Xff,0X00,0X00,0X00,0Xff,0X00,0X00,0X00,0Xff,0Xff,0Xff,0Xff,0X00,0X00,0X00,0Xff,
+  32          0Xff,0X00,0X00,0Xff,0Xff,0Xff,0X00,0Xff,
+  33          };                                                                        
+  34          void main(){
+  35   1      
+  36   1              HD_reset();
+  37   1              delayms(50);
+  38   1                      LCD_INIT_ILI9481();
+  39   1              while(1)
+  40   1              {
+  41   2      /*       LCD_TEST_SingleColor(0xff,0x00,0x00); //display red
+  42   2      
+  43   2             LCD_TEST_SingleColor(0x00,0xff,0x00);  //display blue
+  44   2      
+  45   2                 LCD_TEST_SingleColor(0x00,0x00,0xff);  //display blue
+  46   2      
+  47   2             LCD_TEST_SingleColor(0xff,0xff,0x00);  //display yellow
+  48   2      
+  49   2                 LCD_TEST_SingleColor(0x00,0xff,0xff);  //display 
+  50   2      */
+  51   2      //         LCD_TEST_SingleColor_16BPP(0xf8,0x00);
+  52   2      // Keypress();
+  53   2      //         LCD_TEST_SingleColor_16BPP(0x07,0xE0);
+  54   2      //Keypress();
+  55   2      //         LCD_TEST_SingleColor_16BPP(0x00,0x1F);
+C51 COMPILER V9.01   C51SOURCE                                                             06/28/2014 15:33:04 PAGE 2   
+
+  56   2      //Keypress();
+  57   2        LCD_TEST_barColor();
+  58   2      //Keypress();
+  59   2              }
+  60   1      }
+  61          
+  62          void HD_reset(){
+  63   1              RESETB=1;
+  64   1              delayms(1);     
+  65   1              RESETB=0;
+  66   1              delayms(10);
+  67   1              RESETB=1;
+  68   1              delayms(100);
+  69   1              }
+  70          
+  71             void LCD_INIT_ILI9481(void)
+  72                  {
+  73   1      
+  74   1               LCD_WRITE_CMD(0x11);
+  75   1                      delayms(20);
+  76   1      
+  77   1               LCD_WRITE_CMD(0xD0);
+  78   1               LCD_WRITE_DATA(0x07);
+  79   1               LCD_WRITE_DATA(0x41);
+  80   1               LCD_WRITE_DATA(0x1d);
+  81   1      
+  82   1               LCD_WRITE_CMD(0xD1);
+  83   1               LCD_WRITE_DATA(0x00);
+  84   1               LCD_WRITE_DATA(0x2b);
+  85   1               LCD_WRITE_DATA(0x1f);
+  86   1      
+  87   1               LCD_WRITE_CMD(0xD2);
+  88   1               LCD_WRITE_DATA(0x01);
+  89   1               LCD_WRITE_DATA(0x11);
+  90   1      
+  91   1               LCD_WRITE_CMD(0xC0);
+  92   1               LCD_WRITE_DATA(0x00);
+  93   1               LCD_WRITE_DATA(0x3B);
+  94   1               LCD_WRITE_DATA(0x00);
+  95   1               LCD_WRITE_DATA(0x02);
+  96   1               LCD_WRITE_DATA(0x11);
+  97   1               LCD_WRITE_DATA(0x00);
+  98   1      
+  99   1               LCD_WRITE_CMD(0xC5);
+ 100   1               LCD_WRITE_DATA(0x03);
+ 101   1      
+ 102   1               LCD_WRITE_CMD(0xC6);  //interface control
+ 103   1               LCD_WRITE_DATA(0x80);
+ 104   1      
+ 105   1               LCD_WRITE_CMD(0xC8);
+ 106   1               LCD_WRITE_DATA(0x00);
+ 107   1               LCD_WRITE_DATA(0x14);
+ 108   1               LCD_WRITE_DATA(0x33);
+ 109   1               LCD_WRITE_DATA(0x10);
+ 110   1               LCD_WRITE_DATA(0x00);
+ 111   1               LCD_WRITE_DATA(0x16);
+ 112   1               LCD_WRITE_DATA(0x44);
+ 113   1               LCD_WRITE_DATA(0x36);
+ 114   1               LCD_WRITE_DATA(0x77);
+ 115   1               LCD_WRITE_DATA(0x00);
+ 116   1               LCD_WRITE_DATA(0x0f);
+ 117   1               LCD_WRITE_DATA(0x00);
+C51 COMPILER V9.01   C51SOURCE                                                             06/28/2014 15:33:04 PAGE 3   
+
+ 118   1      
+ 119   1                               
+ 120   1               LCD_WRITE_CMD(0xF3);
+ 121   1               LCD_WRITE_DATA(0x40);
+ 122   1               LCD_WRITE_DATA(0x0A);
+ 123   1      
+ 124   1               LCD_WRITE_CMD(0xF0);
+ 125   1               LCD_WRITE_DATA(0x08);
+ 126   1      
+ 127   1               LCD_WRITE_CMD(0xF6);
+ 128   1               LCD_WRITE_DATA(0x84);
+ 129   1      
+ 130   1               LCD_WRITE_CMD(0xF7);
+ 131   1               LCD_WRITE_DATA(0x80);
+ 132   1      
+ 133   1               LCD_WRITE_CMD(0x0C);
+ 134   1               LCD_WRITE_DATA(0x00);
+ 135   1               LCD_WRITE_DATA(0x55);
+ 136   1      
+ 137   1               LCD_WRITE_CMD(0xB4);
+ 138   1               LCD_WRITE_DATA(0x00);
+ 139   1      
+ 140   1               LCD_WRITE_CMD(0xB3);
+ 141   1               LCD_WRITE_DATA(0x00);
+ 142   1               LCD_WRITE_DATA(0x01);
+ 143   1               LCD_WRITE_DATA(0x06);
+ 144   1               LCD_WRITE_DATA(0x01);
+ 145   1      
+ 146   1               LCD_WRITE_CMD(0x36);
+ 147   1               LCD_WRITE_DATA(0x48);
+ 148   1      
+ 149   1               LCD_WRITE_CMD(0x3a);
+ 150   1               LCD_WRITE_DATA(0x66);
+ 151   1      
+ 152   1               LCD_WRITE_CMD(0x20);
+ 153   1      //       LCD_WRITE_CMD(0x21);
+ 154   1      
+ 155   1               LCD_WRITE_CMD(0x2A);
+ 156   1               LCD_WRITE_DATA(0x00);
+ 157   1               LCD_WRITE_DATA(0x00);
+ 158   1               LCD_WRITE_DATA(0x01);
+ 159   1               LCD_WRITE_DATA(0x3F);
+ 160   1      
+ 161   1               LCD_WRITE_CMD(0x2B);
+ 162   1               LCD_WRITE_DATA(0x00);
+ 163   1               LCD_WRITE_DATA(0x00);
+ 164   1               LCD_WRITE_DATA(0x01);
+ 165   1               LCD_WRITE_DATA(0xdf);
+ 166   1      
+ 167   1               delayms(120);
+ 168   1      
+ 169   1               LCD_WRITE_CMD(0x29);
+ 170   1               delayms(120);
+ 171   1      
+ 172   1               LCD_WRITE_CMD(0x2C);
+ 173   1      
+ 174   1              } 
+ 175          
+ 176          
+ 177          //-------------------------------9 bit chansfer------------
+ 178          void LCD_WRITE_CMD(char cmd1)
+ 179          {
+C51 COMPILER V9.01   C51SOURCE                                                             06/28/2014 15:33:04 PAGE 4   
+
+ 180   1              unsigned char nub;
+ 181   1      
+ 182   1              CSB=0;
+ 183   1      
+ 184   1              SCL=0;                           
+ 185   1              SDA=0;
+ 186   1              SCL=1;
+ 187   1              for(nub=0;nub<8;nub++)
+ 188   1              {
+ 189   2                      SCL=0;                  
+ 190   2                              if((cmd1&0x80)==0x80)
+ 191   2                              {
+ 192   3                                      SDA=1;
+ 193   3                              }
+ 194   2                              else
+ 195   2                              {
+ 196   3                                      SDA=0;
+ 197   3                              }
+ 198   2                              cmd1=(cmd1<<1);
+ 199   2                      SCL=1;
+ 200   2      
+ 201   2              }
+ 202   1              CSB=1;
+ 203   1      
+ 204   1      }
+ 205          
+ 206          void LCD_WRITE_DATA(char dataa)
+ 207          {
+ 208   1              unsigned char nub;
+ 209   1      
+ 210   1              CSB=0;  
+ 211   1      
+ 212   1              SCL=0;           
+ 213   1              SDA=1;
+ 214   1              SCL=1;
+ 215   1              for(nub=0;nub<8;nub++)
+ 216   1              {
+ 217   2                      SCL=0;                  
+ 218   2                              if((dataa&0x80)==0x80)
+ 219   2                              {
+ 220   3                                      SDA=1;
+ 221   3                              }
+ 222   2                              else
+ 223   2                              {
+ 224   3                                      SDA=0;
+ 225   3                              }
+ 226   2                              dataa=(dataa<<1);
+ 227   2                      SCL=1;
+ 228   2              }
+ 229   1              CSB=1;
+ 230   1      
+ 231   1      }
+ 232          
+ 233          //--------------------16bp218bp--------------
+ 234          void LCD_WRITE_DATA_dis(char colorH,char colorL)
+ 235          {
+ 236   1              LCD_WRITE_DATA(colorH&0xf8);
+ 237   1              LCD_WRITE_DATA(((colorH&0x07)<<5)+((colorL&0xe0)>>3));
+ 238   1              LCD_WRITE_DATA((colorL&0x1f)<<3);
+ 239   1      }
+ 240          
+ 241          void LCD_TEST_SingleColor(char colorH,char colorz,char colorL){
+C51 COMPILER V9.01   C51SOURCE                                                             06/28/2014 15:33:04 PAGE 5   
+
+ 242   1           int i,j;
+ 243   1      
+ 244   1               LCD_WRITE_CMD(0x2A);
+ 245   1               LCD_WRITE_DATA(0x00);
+ 246   1               LCD_WRITE_DATA(0x00);
+ 247   1               LCD_WRITE_DATA(0x01);
+ 248   1               LCD_WRITE_DATA(0x3F);
+ 249   1      
+ 250   1               LCD_WRITE_CMD(0x2B);
+ 251   1               LCD_WRITE_DATA(0x00);
+ 252   1               LCD_WRITE_DATA(0x00);
+ 253   1               LCD_WRITE_DATA(0x01);
+ 254   1               LCD_WRITE_DATA(0xe0);
+ 255   1      
+ 256   1               LCD_WRITE_CMD(0x2C);
+ 257   1      
+ 258   1               for (i=0;i<480;i++){
+ 259   2                      for (j=0;j<320;j++){
+ 260   3                      LCD_WRITE_DATA(colorH);
+ 261   3                      LCD_WRITE_DATA(colorz);
+ 262   3                      LCD_WRITE_DATA(colorL);
+ 263   3      
+ 264   3                              }
+ 265   2                      }
+ 266   1              }
+ 267           //##########################ºì£¬ÂÌ£¬À¶£¬»Æ£¬³È£¬ºÚ£¬°×¡£×Ï############
+ 268          void LCD_TEST_barColor(){
+ 269   1           int i,j,k=0,p;
+ 270   1      
+ 271   1               LCD_WRITE_CMD(0x2A);
+ 272   1               LCD_WRITE_DATA(0x00);
+ 273   1               LCD_WRITE_DATA(0x00);
+ 274   1               LCD_WRITE_DATA(0x01);
+ 275   1               LCD_WRITE_DATA(0x3F);
+ 276   1      
+ 277   1               LCD_WRITE_CMD(0x2B);
+ 278   1               LCD_WRITE_DATA(0x00);
+ 279   1               LCD_WRITE_DATA(0x00);
+ 280   1               LCD_WRITE_DATA(0x01);
+ 281   1               LCD_WRITE_DATA(0xe0);
+ 282   1      
+ 283   1               LCD_WRITE_CMD(0x2C);
+ 284   1      
+ 285   1               for (p=0;p<8;p++)
+ 286   1               {
+ 287   2                      for (i=0;i<60;i++){
+ 288   3                              for (j=0;j<320;j++){
+ 289   4                              LCD_WRITE_DATA(barcolor[k]);
+ 290   4                              LCD_WRITE_DATA(barcolor[k+1]);
+ 291   4                              LCD_WRITE_DATA(barcolor[k+2]);
+ 292   4                              }
+ 293   3                      }
+ 294   2                      k++;
+ 295   2                      k++;
+ 296   2                      k++;
+ 297   2                }
+ 298   1              }
+ 299          
+ 300          void LCD_TEST_SingleColor_16BPP(char colorH,char colorL){
+ 301   1           int i,j;
+ 302   1      
+ 303   1               LCD_WRITE_CMD(0x2A);
+C51 COMPILER V9.01   C51SOURCE                                                             06/28/2014 15:33:04 PAGE 6   
+
+ 304   1               LCD_WRITE_DATA(0x00);
+ 305   1               LCD_WRITE_DATA(0x00);
+ 306   1               LCD_WRITE_DATA(0x01);
+ 307   1               LCD_WRITE_DATA(0x3F);
+ 308   1      
+ 309   1               LCD_WRITE_CMD(0x2B);
+ 310   1               LCD_WRITE_DATA(0x00);
+ 311   1               LCD_WRITE_DATA(0x00);
+ 312   1               LCD_WRITE_DATA(0x01);
+ 313   1               LCD_WRITE_DATA(0xe0);
+ 314   1      
+ 315   1               LCD_WRITE_CMD(0x2C);
+ 316   1      
+ 317   1               for (i=0;i<480;i++){
+ 318   2                      for (j=0;j<320;j++){
+ 319   3                      LCD_WRITE_DATA_dis(colorH,colorL);
+ 320   3      
+ 321   3                              }
+ 322   2                      }
+ 323   1              }
+ 324          
+ 325          void Keypress()
+ 326                  {
+ 327   1              while(KEY)
+ 328   1              delayms(10);
+ 329   1              }
+ 330          
+ 331          void delayms(int value)
+ 332                  {
+ 333   1              while (value){
+ 334   2                      delayus(99);
+ 335   2                      value--;
+ 336   2                      }
+ 337   1              }
+ 338          
+ 339          void delayus(int value1)
+ 340                  {
+ 341   1              while (value1)
+ 342   1      
+ 343   1              value1--;
+ 344   1              }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    896    ----
+   CONSTANT SIZE    =     24    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       9
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

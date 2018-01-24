@@ -1,0 +1,201 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+E:\TB\网店淘宝\与屏有关的东西\规格书\3.5'\3.5'\3.5全视角串口+RGB\简单刷屏程序\c51source.uvproj
+Project File Date:  06/19/2014
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling c51source.c...
+C51SOURCE.C(47): error C141: syntax error near 'LCD_TEST_SingleColor_16BPP'
+C51SOURCE.C(49): error C141: syntax error near 'LCD_TEST_SingleColor_16BPP'
+C51SOURCE.C(51): error C141: syntax error near '}'
+Target not created
+Build target 'Target 1'
+compiling c51source.c...
+C51SOURCE.C(47): error C141: syntax error near 'LCD_TEST_SingleColor_16BPP'
+C51SOURCE.C(49): error C141: syntax error near 'LCD_TEST_SingleColor_16BPP'
+C51SOURCE.C(51): error C141: syntax error near '}'
+Target not created
+Build target 'Target 1'
+compiling c51source.c...
+C51SOURCE.C(33): error C141: syntax error near 'void'
+C51SOURCE.C(33): error C141: syntax error near '{'
+C51SOURCE.C(35): error C231: 'HD_reset': redefinition
+C51SOURCE.C(36): error C141: syntax error near '50'
+C51SOURCE.C(36): error C231: '_delayms': redefinition
+C51SOURCE.C(37): error C231: 'LCD_INIT_ILI9481': redefinition
+C51SOURCE.C(38): error C141: syntax error near 'while'
+C51SOURCE.C(38): error C141: syntax error near '1'
+C51SOURCE.C(50): error C141: syntax error near '0xf8'
+C51SOURCE.C(50): error C231: '_LCD_TEST_SingleColor_16BPP': redefinition
+C51SOURCE.C(52): error C141: syntax error near '0x07'
+C51SOURCE.C(52): error C132: 'LCD_TEST_SingleColor_16BPP': not in formal parameter list
+C51SOURCE.C(54): error C132: 'Keypress': not in formal parameter list
+C51SOURCE.C(54): error C141: syntax error near 'LCD_TEST_SingleColor_16BPP'
+C51SOURCE.C(54): error C132: 'LCD_TEST_SingleColor_16BPP': not in formal parameter list
+C51SOURCE.C(56): error C132: 'Keypress': not in formal parameter list
+C51SOURCE.C(56): error C141: syntax error near '}'
+C51SOURCE.C(59): error C132: 'HD_reset': not in formal parameter list
+C51SOURCE.C(59): error C141: syntax error near '{'
+C51SOURCE.C(60): error C244: 'RESETB': can't initialize, bad type or class
+C51SOURCE.C(60): error C132: 'RESETB': not in formal parameter list
+C51SOURCE.C(61): error C141: syntax error near '1'
+C51SOURCE.C(61): error C132: 'delayms': not in formal parameter list
+C51SOURCE.C(62): error C244: 'RESETB': can't initialize, bad type or class
+C51SOURCE.C(62): error C132: 'RESETB': not in formal parameter list
+C51SOURCE.C(63): error C141: syntax error near '10'
+C51SOURCE.C(63): error C132: 'delayms': not in formal parameter list
+C51SOURCE.C(64): error C244: 'RESETB': can't initialize, bad type or class
+C51SOURCE.C(64): error C132: 'RESETB': not in formal parameter list
+C51SOURCE.C(65): error C141: syntax error near '100'
+C51SOURCE.C(65): error C132: 'delayms': not in formal parameter list
+C51SOURCE.C(66): error C141: syntax error near '}'
+Target not created
+Build target 'Target 1'
+compiling c51source.c...
+C51SOURCE.C(34): error C141: syntax error near 'void'
+C51SOURCE.C(34): error C141: syntax error near '{'
+C51SOURCE.C(36): error C231: 'HD_reset': redefinition
+C51SOURCE.C(37): error C141: syntax error near '50'
+C51SOURCE.C(37): error C231: '_delayms': redefinition
+C51SOURCE.C(38): error C231: 'LCD_INIT_ILI9481': redefinition
+C51SOURCE.C(39): error C141: syntax error near 'while'
+C51SOURCE.C(39): error C141: syntax error near '1'
+C51SOURCE.C(51): error C141: syntax error near '0xf8'
+C51SOURCE.C(51): error C231: '_LCD_TEST_SingleColor_16BPP': redefinition
+C51SOURCE.C(53): error C141: syntax error near '0x07'
+C51SOURCE.C(53): error C132: 'LCD_TEST_SingleColor_16BPP': not in formal parameter list
+C51SOURCE.C(55): error C132: 'Keypress': not in formal parameter list
+C51SOURCE.C(55): error C141: syntax error near 'LCD_TEST_SingleColor_16BPP'
+C51SOURCE.C(55): error C132: 'LCD_TEST_SingleColor_16BPP': not in formal parameter list
+C51SOURCE.C(57): error C132: 'Keypress': not in formal parameter list
+C51SOURCE.C(57): error C141: syntax error near '}'
+C51SOURCE.C(60): error C132: 'HD_reset': not in formal parameter list
+C51SOURCE.C(60): error C141: syntax error near '{'
+C51SOURCE.C(61): error C244: 'RESETB': can't initialize, bad type or class
+C51SOURCE.C(61): error C132: 'RESETB': not in formal parameter list
+C51SOURCE.C(62): error C141: syntax error near '1'
+C51SOURCE.C(62): error C132: 'delayms': not in formal parameter list
+C51SOURCE.C(63): error C244: 'RESETB': can't initialize, bad type or class
+C51SOURCE.C(63): error C132: 'RESETB': not in formal parameter list
+C51SOURCE.C(64): error C141: syntax error near '10'
+C51SOURCE.C(64): error C132: 'delayms': not in formal parameter list
+C51SOURCE.C(65): error C244: 'RESETB': can't initialize, bad type or class
+C51SOURCE.C(65): error C132: 'RESETB': not in formal parameter list
+C51SOURCE.C(66): error C141: syntax error near '100'
+C51SOURCE.C(66): error C132: 'delayms': not in formal parameter list
+C51SOURCE.C(67): error C141: syntax error near '}'
+Target not created
+Build target 'Target 1'
+compiling c51source.c...
+C51SOURCE.C(53): error C141: syntax error near 'LCD_TEST_SingleColor_16BPP'
+C51SOURCE.C(55): error C141: syntax error near 'LCD_TEST_SingleColor_16BPP'
+C51SOURCE.C(57): error C141: syntax error near '}'
+Target not created
+Build target 'Target 1'
+compiling c51source.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD_TEST_SINGLECOLOR?C51SOURCE
+Program Size: data=15.0 xdata=0 code=967
+creating hex file from "c51source"...
+"c51source" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling c51source.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD_TEST_SINGLECOLOR?C51SOURCE
+Program Size: data=15.0 xdata=0 code=967
+creating hex file from "c51source"...
+"c51source" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling c51source.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD_TEST_SINGLECOLOR?C51SOURCE
+Program Size: data=15.0 xdata=0 code=967
+creating hex file from "c51source"...
+"c51source" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling c51source.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD_TEST_SINGLECOLOR?C51SOURCE
+Program Size: data=15.0 xdata=0 code=967
+creating hex file from "c51source"...
+"c51source" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling c51source.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD_TEST_SINGLECOLOR?C51SOURCE
+Program Size: data=15.0 xdata=0 code=967
+creating hex file from "c51source"...
+"c51source" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling c51source.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD_TEST_SINGLECOLOR?C51SOURCE
+Program Size: data=15.0 xdata=0 code=968
+creating hex file from "c51source"...
+"c51source" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling c51source.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD_TEST_SINGLECOLOR?C51SOURCE
+Program Size: data=15.0 xdata=0 code=968
+creating hex file from "c51source"...
+"c51source" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling c51source.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD_TEST_SINGLECOLOR?C51SOURCE
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD_TEST_SINGLECOLOR_16BPP?C51SOURCE
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?KEYPRESS?C51SOURCE
+Program Size: data=16.0 xdata=0 code=935
+creating hex file from "c51source"...
+"c51source" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling c51source.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD_TEST_SINGLECOLOR?C51SOURCE
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD_TEST_SINGLECOLOR_16BPP?C51SOURCE
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?KEYPRESS?C51SOURCE
+Program Size: data=16.0 xdata=0 code=935
+creating hex file from "c51source"...
+"c51source" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling c51source.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD_TEST_SINGLECOLOR?C51SOURCE
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD_TEST_SINGLECOLOR_16BPP?C51SOURCE
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?KEYPRESS?C51SOURCE
+Program Size: data=16.0 xdata=0 code=935
+creating hex file from "c51source"...
+"c51source" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling c51source.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD_TEST_SINGLECOLOR?C51SOURCE
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD_TEST_SINGLECOLOR_16BPP?C51SOURCE
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?KEYPRESS?C51SOURCE
+Program Size: data=16.0 xdata=0 code=935
+creating hex file from "c51source"...
+"c51source" - 0 Error(s), 3 Warning(s).
